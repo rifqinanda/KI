@@ -57,7 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Brand Logo -->
     <a href="{{url('/')}}" class="brand-link">
       <img src="{{asset('/adminlte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Cinema XIX</span>
+      <span class="brand-text font-weight-light">Websites</span>
     </a>
 
     <!-- Sidebar -->
