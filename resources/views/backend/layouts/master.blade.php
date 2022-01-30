@@ -104,7 +104,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="/users" class="{{Request::is('/', 'users')?'nav-link active':'nav-link'}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Users
+                User
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
