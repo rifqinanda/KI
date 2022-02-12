@@ -3,16 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Todo;
+use App\Repositories\TodoRepository;
 use Illuminate\Http\Request;
-use DB;
 
 class TodoController extends Controller
 {
     public function index()
     {
-        // $todos = Todo::all();
-
-        $todos = DB::table('todos')->get();
+        $todos = Todo::all();
         $data = [
             'todos' => $todos
         ];
@@ -26,32 +24,26 @@ class TodoController extends Controller
 
     public function store(Request $request)
     {
-        DB::table('todos')->insert([
-            'name' => $request->name
-        ]);
+        TodoRepository::createTodo($request);
 
         return redirect('/');
     }
 
-    public function edit($id)
+    public function edit(Todo $todo)
     {
-        $todo = DB::table('todos')->where('id', $id)->first();
         return view('todos.edit', compact('todo'));
     }
 
     public function update(Request $request, $id)
     {
-        DB::table('todos')->where('id', $id)->update([
-            'name' => $request->name,
-            'is_done' => $request->is_done
-        ]);
+        TodoRepository::editTodo($request, $id);
 
         return redirect('/');
     }
 
-    public function delete($id)
+    public function delete(Todo $todo)
     {
-        DB::table('todos')->where('id', $id)->delete();
+        $todo->delete();
 
         return redirect('/');
     }

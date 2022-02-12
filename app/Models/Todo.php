@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Todo extends Model
 {
-    protected $table = ‘todos’;
-    public $fillable = [‘name’, ‘is_done’];
+    // protected $table = ‘todos’;
+    protected $fillable = [
+        'name',
+        'is_done',
+    ];
+
 }
